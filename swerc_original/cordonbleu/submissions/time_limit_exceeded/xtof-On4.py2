@@ -1,0 +1,101 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+# c.durr - swerc - 2017
+
+# Cordon bleu
+
+# implementation in O(n^4)
+
+import sys
+
+def readInt():      return int(sys.stdin.readline())
+def readInts():     return map(int, sys.stdin.readline().split())
+
+def array3d(a,b,c, default=None):
+    return [[[default for _ in xrange(c)] for _ in xrange(b)] for _ in xrange(a)]
+
+def array2d(a,b, default=None):
+    return [[default for _ in xrange(b)] for _ in xrange(a)]
+
+
+# we can use zero as we are working with integer weights
+TOLERANCE = 0 # 1e-6          # everything smaller is considered zero
+
+
+# snip{
+def improve_matching(G, u, mu, mv, au, av, lu, lv):
+    assert not au[u]
+    au[u] = True
+    for v in xrange(len(G)):
+        if not av[v] and G[u][v] == lu[u] + lv[v]:
+            av[v] = True
+            if mv[v] is None or \
+               improve_matching(G, mv[v], mu, mv, au, av, lu, lv):
+                mv[v] = u
+                mu[u] = v
+                return True
+    return False
+
+
+def improve_labels(G, au, av, lu, lv):
+    U = V = xrange(len(G))
+    delta = min(min(lu[u] + lv[v] - G[u][v]
+                for v in V if not av[v]) for u in U if au[u])
+    for u in U:
+        if (au[u]):
+            lu[u] -= delta
+    for v in V:
+        if (av[v]):
+            lv[v] += delta
+
+
+def kuhn_munkres(G):      # couplage parfait de profit maximal en O(n^4)
+    """Maximal profit perfect matching
+
+    for minimum cost perfect matching just inverse the weights
+
+    :param G: squared weight matrix of a complete bipartite graph
+    :complexity: :math:`O(n^4)`
+    """
+    assert len(G) == len(G[0])
+    n = len(G)
+    mu = [None] * n                 # couplage vide
+    mv = [None] * n
+    lu = [max(row) for row in G]    # étiqu. triviaux
+    lv = [0] * n
+    for u0 in xrange(n):
+        if mu[u0] is None:          # sommet libre
+            while True:
+                au = [False] * n    # arbre alternant vide
+                av = [False] * n
+                if improve_matching(G, u0, mu, mv, au, av, lu, lv):
+                    break
+                improve_labels(G, au, av, lu, lv)
+    return (mu,  sum(lu) + sum(lv))
+# snip}
+
+
+
+def dist(p, q):
+    '''L1 or also called Manhattan distance
+    '''
+    return abs(p[0] - q[0]) + abs(p[1] - q[1])
+
+
+def solve(bottle, courier, lab):
+    n = len(courier) + len(bottle) - 1
+    G = array2d(n, n, 0)
+    for j, b in enumerate(bottle):
+        for i, c in enumerate(courier):
+            G[i][j] = - dist(c, b) - dist(b, lab)  # invert sign, to compute *min cost* matching
+        for i in xrange(len(courier), n):
+            G[i][j] = -2 * dist(b, lab)
+    return - kuhn_munkres(G)[1]                        # then invert sign again to recover cost
+
+
+
+nb_bottles, nb_couriers = readInts()
+bottle = [tuple(readInts()) for _ in xrange(nb_bottles)]
+courier = [tuple(readInts()) for _ in xrange(nb_couriers)]
+lab = tuple(readInts())
+print(solve(bottle, courier, lab))

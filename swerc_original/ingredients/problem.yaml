@@ -1,0 +1,8 @@
+source: Southwestern Europe Regional Contest (SWERC) 2017
+source_url: https://swerc.eu/
+author: Silviu Maniu
+license: cc by-sa
+name: Ingredients
+
+limits:
+  validation_time: 4

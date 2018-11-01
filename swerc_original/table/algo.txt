@@ -1,0 +1,21 @@
+O(X*Y + N + D) -- Le code devrait être assez court.
+
+Premièrement, on commence par créer une bitmap des emplacements libres
+de la table. Ca se fait naïvement en O(X*Y + N), puisqu'on sait que
+les décorations ne se recouvrent pas.
+
+Ensuite, c'est une variante de l'algorithme permettant de trouver le
+plus grand rectangle de 0 dans une bitmap. On va énumérer tous les
+rectangles libres qui ne peuvent pas être agrandis en haut, à droite
+et à gauche (mais ils peuvent potentiellement être agrandis en bas).
+On peut faire ça en temps linéaire avec une pile (voir par exemple
+http://www.geeksforgeeks.org/maximum-size-rectangle-binary-sub-matrix-1s/).
+
+A chaque fois qu'on voit l'un de ces rectangles, on peut compter tous
+les plats qui y rentrent (et chacune des positions possibles, en
+faisant varier la position horizontale, mais en fixant la position
+verticale à la hauteur courante). Pour éviter de compter des positions
+plusieurs fois, il faut exclure celles qui rentrent dans le rectangle
+maximal "suivant" (i.e., celui qui est plus bas mais qui s'étend
+horizontalement). En pratique, pour faire le calcul efficacement, on
+ne fait le cumul qu'à la fin.

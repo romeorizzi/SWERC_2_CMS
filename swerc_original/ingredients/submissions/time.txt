@@ -1,0 +1,39 @@
+ % for i (../tests/*.in); time diff <(./a.out < $i) ${i%in}out
+ <(./a.out < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,004 total
+ <(./a.out < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,003 total
+ <(./a.out < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,002 total
+ <(./a.out < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,002 total
+ <(./a.out < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,005 total
+ <(./a.out < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,003 total
+ <(./a.out < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,957 total
+ <(./a.out < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 4,146 total
+ 
+ % for i (../tests/*.in); time diff <(java Ingredients_Draft < $i) ${i%in}out
+ <(java Ingredients_Draft < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,067 total
+ <(java Ingredients_Draft < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,063 total
+ <(java Ingredients_Draft < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,057 total
+ <(java Ingredients_Draft < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,059 total
+ <(java Ingredients_Draft < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,060 total
+ <(java Ingredients_Draft < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,058 total
+ <(java Ingredients_Draft < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,565 total
+ <(java Ingredients_Draft < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 1,563 total
+ 
+ % for i (../tests/*.in); time diff <(python ingredients_optimal.py < $i) ${i%in}out
+ <(python ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,012 total
+ <(python ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,011 total
+ <(python ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,018 total
+ <(python ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,010 total
+ <(python ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,012 total
+ <(python ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,029 total
+ <(python ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 1,969 total
+ <(python ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 9,026 total
+ 
+ % for i (../tests/*.in); time diff <(pypy ingredients_optimal.py < $i) ${i%in}out
+ <(pypy ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,031 total
+ <(pypy ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,021 total
+ <(pypy ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,027 total
+ <(pypy ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,019 total
+ <(pypy ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,033 total
+ <(pypy ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,035 total
+ <(pypy ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 0,393 total
+ <(pypy ingredients_optimal.py < $i) ${i%in}out  0,00s user 0,00s system 0% cpu 2,358 total

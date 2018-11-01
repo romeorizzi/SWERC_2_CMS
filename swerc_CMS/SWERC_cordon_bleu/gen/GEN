@@ -1,0 +1,27 @@
+# File che elenca gli input e ne specifica la generazione.
+# Le parti della riga dopo un # vengono ignorate.
+# Le righe non banali (ovvero contenenti qualcosa prima del primo #)
+# vengono passate al generatore e generano un input ciascuna.
+# Se una riga inizia con "#ST:" (senza le virgolette) delimita un subtask.
+# "#ST:" va seguito con il punteggio assegnato a quel subtask.
+# Se sono presenti i subtask, la somma dei punti dei subtask DEVE essere 100.
+
+#ST: 0
+ZCOPY SWERC_instances/sample/sample01.in.gz
+
+#ST: 100
+ZCOPY SWERC_instances/secret/000.in.gz
+ZCOPY SWERC_instances/secret/001.in.gz
+ZCOPY SWERC_instances/secret/002.in.gz
+ZCOPY SWERC_instances/secret/003.in.gz
+ZCOPY SWERC_instances/secret/004.in.gz
+ZCOPY SWERC_instances/secret/005.in.gz
+ZCOPY SWERC_instances/secret/006.in.gz
+ZCOPY SWERC_instances/secret/007.in.gz
+ZCOPY SWERC_instances/secret/008.in.gz
+ZCOPY SWERC_instances/secret/009.in.gz
+ZCOPY SWERC_instances/secret/010.in.gz
+ZCOPY SWERC_instances/secret/011.in.gz
+ZCOPY SWERC_instances/secret/012.in.gz
+ZCOPY SWERC_instances/secret/013.in.gz
+ZCOPY SWERC_instances/secret/014.in.gz

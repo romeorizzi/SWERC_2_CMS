@@ -1,0 +1,22 @@
+# CMS-problem-packet obtained from the following original problem:
+# source: Southwestern Europe Regional Contest (SWERC) 2017
+# source_url: https://swerc.eu/
+# author: Christoph Dürr
+# name: Blowing Candles
+# license: cc by-sa
+# 
+# limits:
+# validation_time: 4
+# 
+# # Warning. Only used for verifyproblem; domjudge needs to be configured
+# # differently
+# validator_flags: float_tolerance 1e-5
+# -----------------------------------
+memory_limit: 256
+name: SWERC_blowing_candles
+title: SWERC_blowing_candles
+time_limit:  4.0
+token_mode: infinite
+infile: ""
+outfile: ""
+n_input: 23

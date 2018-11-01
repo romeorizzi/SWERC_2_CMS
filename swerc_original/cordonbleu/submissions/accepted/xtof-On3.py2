@@ -1,0 +1,134 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+# c.durr - swerc - 2017
+
+""" Cordon bleu
+
+In a 2 dimensional plane we have N bottles, M couriers and 1 lab. Every bottle
+needs to be transported to the lab by a courier.  A courier could travel from
+its initial position to a bottle and then to the lab (first kind of trip).  In
+addition he can then later travel from the lab to a bottle and back (second
+kind of trip). This second trip can be done only once per courier.  The key
+observation is that it does not matter which courier does this second kind of
+trip for a fixed bottle and in total there can be at most N - 1 trips of the
+second kind, since it needs at least one trip of the first type to get some
+courier to the lab initially.
+
+This leads to the following min cost bipartite matching model.  On the left we
+have the M couriers and N - 1 dummy couriers. On the right we the N bottles
+and M - 1 dummy bottles.  The bipartite graph is complete and has the
+following edge weights.
+
+- weight between a courier C and a bottle B is the distance from C to B and
+  from B to the lab. Such an edge corresponds to a first kind of trip.
+
+- weight between a dummy courier and a bottle B is the distance from the lab
+  to B and back. Such an edge corresponds to a second kind of trip.
+
+- weight between any left vertex and a dummy bottle is zero.  A presence of
+  such an edge in the matching means that some courier is not used or that the
+  maximum number of second kind of trips is not reached.
+
+The goal is then to compute a minimum cost perfect matching in this graph,
+which can be done in time O(n^3) using the hungarian method (Kuhn-Munkres).  A
+simplified implementation has complexity O(n^4) and could be too long.
+Here n = M + N - 1.
+"""
+
+import sys
+
+def readInt():      return int(sys.stdin.readline())
+def readInts():     return map(int, sys.stdin.readline().split())
+
+def array3d(a,b,c, default=None):
+    return [[[default for _ in xrange(c)] for _ in xrange(b)] for _ in xrange(a)]
+
+def array2d(a,b, default=None):
+    return [[default for _ in xrange(b)] for _ in xrange(a)]
+
+
+# we can use zero as we are working with integer weights
+TOLERANCE = 0 # 1e-6          # everything smaller is considered zero
+
+
+def kuhn_munkres(G):      # from tryalgo, adapted for non-square matrices
+    """Maximum profit bipartite matching by Kuhn-Munkres
+
+    :param G: weight matrix G[u][v] is weight of edge (u,v),
+    :requires: graph is a bi-partite graph, with U <= V
+               Hence G is a matrix where  float('-inf') or float('inf')
+               are allowed entries but not None.
+    :returns: matching table from U to V, value of matching
+    :complexity: :math:`O(|V|^3)`
+    """
+    nu, nv = len(G), len(G[0])
+    U = xrange(nu)
+    V = xrange(nv)
+    mu = [None] * nu                 # couplage vide
+    mv = [None] * nv
+    lu = [max(row) for row in G]    # étiqu. triviaux
+    lv = [0] * nv
+    for root in U:                  # constr. un arbre alterné
+        au = [False] * nu
+        au[root] = True
+        Av = [None] * nv
+        marge = [(lu[root] + lv[v] - G[root][v], root) for v in V]
+        while True:
+            ((delta, u), v) = min((marge[v], v) for v in V if Av[v] == None)
+            assert au[u]
+            if delta > TOLERANCE:   # arbre est complet
+                for u0 in U:        # améliorer les étiquettes
+                    if au[u0]:
+                        lu[u0] -= delta
+                for v0 in V:
+                    if Av[v0] is not None:
+                        lv[v0] += delta
+                    else:
+                        (val, arg) = marge[v0]
+                        marge[v0] = (val - delta, arg)
+            assert abs(lu[u] + lv[v] - G[u][v]) <= TOLERANCE  # equality test
+            Av[v] = u                # ajout (u, v) dans A
+            if mv[v] is None:
+                break                # chemin alt. trouvé...
+            u1 = mv[v]
+            assert not au[u1]
+            au[u1] = True            # ajout (u1, v) dans A
+            for v1 in V:
+                if Av[v1] is None:   # mettre à jour les marges
+                    alt = (lu[u1] + lv[v1] - G[u1][v1], u1)
+                    if marge[v1] > alt:
+                        marge[v1] = alt
+        while v is not None:         # ...chemin alt. trouvé
+            u = Av[v]                # le long du chemin vers la racine
+            prec = mu[u]
+            mv[v] = u                # augmenter le couplage
+            mu[u] = v
+            v = prec
+    return (mu,  sum(lu) + sum(lv))
+
+
+
+def dist(p, q):
+    '''L1 or also called Manhattan distance
+    '''
+    return abs(p[0] - q[0]) + abs(p[1] - q[1])
+
+
+def solve(bottle, courier, lab):
+    n = len(courier) + len(bottle) - 1
+    G = array2d(len(bottle), n, 0)
+    for j, b in enumerate(bottle):
+        for i, c in enumerate(courier):
+            G[j][i] = - dist(c, b) - dist(b, lab)  # invert sign, to compute *min cost* matching
+        for i in xrange(len(courier), n):
+            G[j][i] = -2 * dist(b, lab)
+    k=kuhn_munkres(G)
+    return - k[1]                        # then invert sign again to recover cost
+
+
+
+nb_bottles, nb_couriers = readInts()
+bottle = [tuple(readInts()) for _ in xrange(nb_bottles)]
+courier = [tuple(readInts()) for _ in xrange(nb_couriers)]
+lab = tuple(readInts())
+print(solve(bottle, courier, lab))

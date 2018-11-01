@@ -1,0 +1,8 @@
+source: Southwestern Europe Regional Contest (SWERC) 2017
+source_url: https://swerc.eu/
+author: Louis Jachiet
+license: cc by-sa
+name: Kabobs
+
+limits:
+  validation_time: 5

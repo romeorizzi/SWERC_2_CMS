@@ -1,0 +1,69 @@
+\problemname{D: Candy Chain}
+\balloon{ffffff}
+
+{\centering
+  \includegraphics[width=.6\linewidth]{jellybeans-together}
+\par}
+
+\medskip
+
+\noindent
+A Candy Chain is a sequence of individual candies. Candies come in 26
+different flavors identified by the lowercase letters \emph{a} to
+\emph{z}. Margot has a particularly fancy Candy Chain displayed in her shop.
+
+After school, children will come to her and buy portions of the Candy
+Chain. Every child has different preferences.  For example there is a
+child who likes portions with flavors \emph{ababi}, and is willing to pay
+3 euros for it. Another child likes portions with flavors \emph{axsa} and
+is willing to pay 5 euros for it.
+
+Margot can extract portions of the Candy Chain and sell them to the
+children. When she extracts a portion, she joins the remaining left
+and right parts of the Candy Chain, and can then continue serving
+additional portions, or decide to stop.
+
+The same sequence of flavors can be sold multiple times to the same
+child (as long as Margot is able to extract multiple instances of it from
+her Candy Chain). Margot never throws away candies if she cannot sell
+them. She can reverse candy portions while selling them (e.g., \emph{axsa}
+and \emph{asxa} are equivalent). Margot does not have to serve all
+children, and she does not have to serve the children in any particular
+order.
+
+Your task is to help Margot compute the maximum amount she can earn
+from her Candy Chain.
+
+\subsection*{Input}
+
+\begin{itemize}
+
+  \item Line 1 represents Margot's Candy Chain as a non-empty string of
+    characters.
+
+  \item Line 2 consists of the number of children, an integer $C$.
+
+  \item The $C$ following lines represent the preferences of each child
+    as two items separated by a space:
+    his or her preferred candy portion,
+    represented by a non-empty string of characters; and what he or she is willing to pay,
+    represented by an integer $P_i$.
+\end{itemize}
+
+\subsection*{Limits}
+
+\begin{itemize}
+  \item Margot's Candy Chain, as well as the candy portion of every
+    child, is formed of at most 50 candies;
+  \item $1 \leqslant C \leqslant 200$;
+  \item for all $1\leq i\leq C$, $0 \leqslant P_i \leqslant
+    1\,000\,000$;
+  \item all strings are formed of the lowercase characters \texttt{a} to \texttt{z} only.
+\end{itemize}
+
+
+\subsection*{Output}
+
+A single integer: the maximum amount Margot can earn.
+
+\clearpage

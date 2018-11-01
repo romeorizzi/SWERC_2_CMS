@@ -1,0 +1,18 @@
+# CMS-problem-packet obtained from the following original problem:
+# source: Southwestern Europe Regional Contest (SWERC) 2017
+# source_url: https://swerc.eu/
+# author: Ioana Ilena
+# name: Burglary
+# license: cc by-sa
+# 
+# limits:
+# validation_time: 2
+# -----------------------------------
+memory_limit: 256
+name: SWERC_burglary
+title: SWERC_burglary
+time_limit:  2.0
+token_mode: infinite
+infile: ""
+outfile: ""
+n_input: 17

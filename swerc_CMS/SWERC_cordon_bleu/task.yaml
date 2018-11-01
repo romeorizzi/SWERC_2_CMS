@@ -1,0 +1,18 @@
+# CMS-problem-packet obtained from the following original problem:
+# source: Southwestern Europe Regional Contest (SWERC) 2017
+# source_url: https://swerc.eu/
+# author: Samuel Tardieu
+# license: cc by-sa
+# name: Cordon Bleu
+# 
+# limits:
+# validation_time: 7
+# -----------------------------------
+memory_limit: 256
+name: SWERC_cordon_bleu
+title: SWERC_cordon_bleu
+time_limit:  7.0
+token_mode: infinite
+infile: ""
+outfile: ""
+n_input: 16

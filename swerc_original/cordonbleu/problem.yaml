@@ -1,0 +1,8 @@
+source: Southwestern Europe Regional Contest (SWERC) 2017
+source_url: https://swerc.eu/
+author: Samuel Tardieu
+license: cc by-sa
+name: Cordon Bleu
+
+limits:
+  validation_time: 7

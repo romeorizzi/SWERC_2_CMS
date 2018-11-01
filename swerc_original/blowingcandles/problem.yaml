@@ -1,0 +1,12 @@
+source: Southwestern Europe Regional Contest (SWERC) 2017
+source_url: https://swerc.eu/
+author: Christoph Dürr
+name: Blowing Candles
+license: cc by-sa
+
+limits:
+  validation_time: 4
+
+# Warning. Only used for verifyproblem; domjudge needs to be configured
+# differently
+validator_flags: float_tolerance 1e-5

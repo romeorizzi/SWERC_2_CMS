@@ -1,0 +1,18 @@
+# CMS-problem-packet obtained from the following original problem:
+# source: Southwestern Europe Regional Contest (SWERC) 2017
+# source_url: https://swerc.eu/
+# author: Raphaël Marinier
+# license: cc by-sa
+# name: Cakey McCakeFace
+# 
+# limits:
+# validation_time: 7
+# -----------------------------------
+memory_limit: 256
+name: SWERC_cakey_mccakeface
+title: SWERC_cakey_mccakeface
+time_limit:  7.0
+token_mode: infinite
+infile: ""
+outfile: ""
+n_input: 15

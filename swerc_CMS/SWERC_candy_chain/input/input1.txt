@@ -1,0 +1,5 @@
+aaabaaa
+3
+aaaaaa 10
+ba 5
+b 1

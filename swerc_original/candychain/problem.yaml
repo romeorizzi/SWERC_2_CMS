@@ -1,0 +1,8 @@
+source: Southwestern Europe Regional Contest (SWERC) 2017
+source_url: https://swerc.eu/
+author: Raphaël Marinier
+license: cc by-sa
+name: Candy Chain
+
+limits:
+  validation_time: 7

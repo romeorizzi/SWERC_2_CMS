@@ -1,0 +1,7 @@
+- Ecrire plus de tests
+   + Vérifier les cas limites, les bugs potentiels
+   + Avoir des "gros" tests qui utilisent tout l'alphabet
+- Faire un validateur pour l'entrée
+- Faire des solutions fausses
+   + bugs (-> wrong answer)
+   + mauvaise complexité (-> time limit)

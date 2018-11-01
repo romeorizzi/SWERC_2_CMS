@@ -1,0 +1,34 @@
+# File che elenca gli input e ne specifica la generazione.
+# Le parti della riga dopo un # vengono ignorate.
+# Le righe non banali (ovvero contenenti qualcosa prima del primo #)
+# vengono passate al generatore e generano un input ciascuna.
+# Se una riga inizia con "#ST:" (senza le virgolette) delimita un subtask.
+# "#ST:" va seguito con il punteggio assegnato a quel subtask.
+# Se sono presenti i subtask, la somma dei punti dei subtask DEVE essere 100.
+
+#ST: 0
+ZCOPY SWERC_instances/sample/sample01.in.gz
+
+#ST: 100
+ZCOPY SWERC_instances/secret/aligned01.in.gz
+ZCOPY SWERC_instances/secret/aligned02.in.gz
+ZCOPY SWERC_instances/secret/aligned03.in.gz
+ZCOPY SWERC_instances/secret/aligned04.in.gz
+ZCOPY SWERC_instances/secret/aligned05.in.gz
+ZCOPY SWERC_instances/secret/aligned06.in.gz
+ZCOPY SWERC_instances/secret/aligned07.in.gz
+ZCOPY SWERC_instances/secret/aligned08.in.gz
+ZCOPY SWERC_instances/secret/colinear01.in.gz
+ZCOPY SWERC_instances/secret/colinear02.in.gz
+ZCOPY SWERC_instances/secret/colinear03.in.gz
+ZCOPY SWERC_instances/secret/colinear04.in.gz
+ZCOPY SWERC_instances/secret/colinear05.in.gz
+ZCOPY SWERC_instances/secret/colinear06.in.gz
+ZCOPY SWERC_instances/secret/no_origin.in.gz
+ZCOPY SWERC_instances/secret/oval7.in.gz
+ZCOPY SWERC_instances/secret/random01.in.gz
+ZCOPY SWERC_instances/secret/random02.in.gz
+ZCOPY SWERC_instances/secret/random03.in.gz
+ZCOPY SWERC_instances/secret/random04.in.gz
+ZCOPY SWERC_instances/secret/random05.in.gz
+ZCOPY SWERC_instances/secret/random06.in.gz

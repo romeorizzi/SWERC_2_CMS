@@ -1,0 +1,58 @@
+\input{../preamble}
+
+\begin{center}
+  \huge
+
+  \textbf{\sffamily ~\\ACM-ICPC SouthWestern Europe\\Regional
+  Contest 2017}
+
+  \bigskip
+
+  \textsf{Paris, 26 November 2017}
+
+  \bigskip\bigskip
+
+  \includegraphics[width=.65\linewidth]{../logo}
+
+  \bigskip\bigskip\normalsize
+
+
+  \section*{Judges and Problem Setters}
+  \noindent\begin{minipage}{.5\linewidth}
+  \begin{itemize}
+\item Mehdi Bouaziz (Facebook)
+\item Christoph Dürr (CNRS, LIP6)
+\item Jean-Christophe Filliâtre (CNRS, LRI)
+\item Thomas Huet (Google)
+\item Ioana Ileana (Université Paris-Descartes)
+\item Louis Jachiet (École normale supérieure)
+  \end{itemize}
+  \end{minipage}\begin{minipage}{.5\linewidth}
+  \begin{itemize}
+\item Jacques-Henri Jourdan (CNRS, LRI)
+\item Silviu Maniu (Université Paris-Sud)
+\item Raphaël Marinier (Google)
+\item Pierre Senellart (École normale supérieure), \emph{chief judge}
+\item Samuel Tardieu (Télécom ParisTech)
+  \end{itemize}
+  \end{minipage}
+\end{center}
+  \vfill
+  
+  \centerline{This problem set consists of 11 problems, on~\pageref{LastPage}
+  pages.}
+
+  \vfill
+  \doclicenseThis
+
+  \thispagestyle{empty}
+  \clearpage
+  \pagestyle{plain}
+
+\foreach \i in {cakeymccakeface,table,macarons,candychain,ingredients,shatteredcake,cordonbleu,kabobs,burglary,frosting,blowingcandles} {
+  \subimport{\i/problem_statement/}{problem.en.tex}
+  \inputsample{\i}
+  \cleartoleftpage
+}
+
+\end{document}

@@ -14,7 +14,7 @@ elif argv[1] == "ZCOPY":
         exit(1)
     os.system("zcat " + argv[2])
 else:
-    os.system("echo " + ' '.join(argv[1:]))    
+    print(' '.join(argv[1:]))    
 
 exit(0)
 
